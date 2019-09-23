@@ -18,7 +18,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Foodie
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -28,7 +28,7 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '50vh',
+    height: '75vh',
   },
   image: {
     backgroundImage: 'url(https://merodea.com/merodeapress/wp-content/uploads/2016/08/Food_Delivery.jpg)',
@@ -68,7 +68,7 @@ export default function SignInSide() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in to FOODIE
+            Ingresa a Foodie
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
@@ -77,7 +77,7 @@ export default function SignInSide() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -87,15 +87,15 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
+              name="contraseña"
+              label="Contraseña"
               type="password"
               id="password"
               autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Recordarme"
             />
             <Button
               type="submit"
@@ -104,17 +104,17 @@ export default function SignInSide() {
               color="primary"
               className={classes.submit}
             >
-              Sign In to FOODIE
+              Ingresa a  FOODIE
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Te olvidaste la contraseña?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/signin" variant="body2">
+                  {"Nuevo en FOODIE? Registrate"}
                 </Link>
               </Grid>
             </Grid>

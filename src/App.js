@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/login";
+import Signin from "./components/signin";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import logo from './logo.svg';
 import './App.css';
@@ -20,6 +21,7 @@ class App extends Component {
             <Switch>
                 <Route exact path="/" component={Login} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/signin" component={Signin} />
             </Switch>
           </Router>
         </Provider>
