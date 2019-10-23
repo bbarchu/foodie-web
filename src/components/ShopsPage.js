@@ -1,10 +1,5 @@
 import React from 'react'
-
-
-
-
-
-
+import { Link } from 'react-router-dom';
 
 class ShopsPage extends React.Component {
 	state = {
@@ -26,6 +21,9 @@ class ShopsPage extends React.Component {
         return (
           <React.Fragment>
         <h2> Shops </h2>
+        <Link className="btn btn-primary" to="/shop">
+          Add shop
+        </Link>
         <table className="table">
           <thead>
             <tr>
@@ -41,14 +39,16 @@ class ShopsPage extends React.Component {
           <tbody>
             {this.state.shops.map ( shop => {
               return ( 
-                <tr>
+                <tr key={shop.id}>
                 <td> {shop.id} </td>
-                <th>{shop.name}</th>
-                <th>{shop.description}</th>
-                <th>{shop.address}</th>
-                <th>{shop.location}</th>
-                <th>{shop.category}</th>
-                <th>{shop.creation_date}</th>
+                <td>
+                <Link to={"/shop" + shop.slug}>{shop.name}</Link>
+                </td>
+                <td>{shop.description}</td>
+                <td>{shop.address}</td>
+                <td>{shop.location}</td>
+                <td>{shop.category}</td>
+                <td>{shop.creation_date}</td>
               </tr>
               );
             })}
