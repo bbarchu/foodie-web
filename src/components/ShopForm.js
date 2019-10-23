@@ -20,6 +20,8 @@ function ShopForm(props) {
         name="name"
         value={props.shop.name}
         onChange={props.onChange}
+        //error={props.error.name}
+
         />
              
           

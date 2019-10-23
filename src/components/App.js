@@ -8,6 +8,7 @@ import ShopsPage from './ShopsPage';
 import ManageShopPage from './ManageShopPage';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+      
 
 function App(){
 

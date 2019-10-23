@@ -42,7 +42,7 @@ class ShopsPage extends React.Component {
                 <tr key={shop.id}>
                 <td> {shop.id} </td>
                 <td>
-                <Link to={"/shop" + shop.slug}>{shop.name}</Link>
+                <Link to={"/shop/" + shop.name}>{shop.name}</Link>
                 </td>
                 <td>{shop.description}</td>
                 <td>{shop.address}</td>
