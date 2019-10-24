@@ -13,9 +13,6 @@ class ShopsPage extends React.Component {
     }).then( shops => this.setState ({shops: shops}));
   }
 
-  // componentDidMount(){
-  //   getCourses().then( shops => this.setState ({shops: shops}));
-  // }
 
     render() {
         return (

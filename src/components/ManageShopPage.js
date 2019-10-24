@@ -21,12 +21,28 @@ const ManageShopPage = props => {
     }
 
     function handleSubmit(event){
+
         event.preventDefault();
-        //if(!formIsValid()) return;
-        //shopAPI.saveCourse(shop).then(() => { 
-        //    props.history.push("/shops");
-        //    toast.success("Shop was added!");
-        //});
+        if(!formIsValid()) return;
+
+        fetch('https://taller2-herokuapp.com/api/admin/shops', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                address: shop.name,
+                location: shop.location,
+                category: shop.category,
+                name: shop.name,
+                description: shop.description
+
+            })
+        }).then(() => { 
+            props.history.push("/shops");
+            toast.success("Shop was added!");
+        });
     }
 
     function formIsValid(){
@@ -39,11 +55,12 @@ const ManageShopPage = props => {
 
     return (
         <React.Fragment>
-            <h2> Manage Shop</h2>
+            <h2> Add Shop</h2>
             <ShopForm 
             shop={shop}
             onChange={handleChange}
-            errors={errors}/>
+            errors={errors}
+            onSubmit={handleSubmit}/>
         </React.Fragment>
     )
 }

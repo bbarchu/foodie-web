@@ -3,17 +3,8 @@ import TextInput from './common/TextInput';
 
 function ShopForm(props) {
     return ( 
-      <form>
-          
-        <TextInput
-            id="id"
-            label="Id"
-            name="id"
-            value={props.shop.id}
-            onChange={props.onChange}
-        />
-
-         
+      <form onSubmit={props.onSubmit}>
+                
         <TextInput
         id="name"
         label="Name"
