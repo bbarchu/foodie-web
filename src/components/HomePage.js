@@ -5,7 +5,9 @@ function HomePage(){
     return (<div className="jumbotron">
         <h1> Foodie administration </h1>
         <p> Administra tu aplicación </p>
-        <Link to="about" className="btn btn-primary">About</Link>
+        <Link to="shops" className="btn btn-primary">Shops </Link>
+        {" "}<Link to="users" className="btn btn-primary">Users</Link>
+
     </div>
     );
 }

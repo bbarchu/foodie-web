@@ -9,6 +9,7 @@ import ManageShopPage from './ManageShopPage';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from './ProductPage';
+import UsersPage from './UsersPage';
       
 
 function App(){
@@ -21,8 +22,9 @@ function App(){
         <Route path="/" exact component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
+        <Route path="/users" component={UsersPage} />
         <Route path="/shop/:slug" component={ProductPage} />
-        <Route path="/shop" component={ManageShopPage} />
+        <Route path="/add-shop" component={ManageShopPage} />
         <Route component={NotFoundPage}/>
       </Switch>
     </div>

@@ -18,7 +18,7 @@ class ShopsPage extends React.Component {
         return (
           <React.Fragment>
         <h2> Shops </h2>
-        <Link className="btn btn-primary" to="/shop">
+        <Link className="btn btn-primary" to="/add-shop">
           Add shop
         </Link>
         <table className="table">
