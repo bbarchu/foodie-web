@@ -8,6 +8,7 @@ import ShopsPage from './ShopsPage';
 import ManageShopPage from './ManageShopPage';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import ProductPage from './ProductPage';
       
 
 function App(){
@@ -20,7 +21,7 @@ function App(){
         <Route path="/" exact component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
-        <Route path="/shop/:slug" component={NotFoundPage} />
+        <Route path="/shop/:slug" component={ProductPage} />
         <Route path="/shop" component={ManageShopPage} />
         <Route component={NotFoundPage}/>
       </Switch>

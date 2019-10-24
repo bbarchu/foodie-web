@@ -22,7 +22,7 @@ const ManageShopPage = props => {
 
     function handleSubmit(event){
 
-        event.preventDefault();
+        
         if(!formIsValid()) return;
 
         fetch('https://taller2-herokuapp.com/api/admin/shops', {
@@ -32,7 +32,7 @@ const ManageShopPage = props => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                address: shop.name,
+                address: shop.address,
                 location: shop.location,
                 category: shop.category,
                 name: shop.name,
@@ -43,6 +43,8 @@ const ManageShopPage = props => {
             props.history.push("/shops");
             toast.success("Shop was added!");
         });
+
+        event.preventDefault();
     }
 
     function formIsValid(){

@@ -30,7 +30,6 @@ class ShopsPage extends React.Component {
               <th>address</th>
               <th>location</th>
               <th>category</th>
-              <th>creation_date</th>
             </tr>
           </thead>
           <tbody>
@@ -39,13 +38,12 @@ class ShopsPage extends React.Component {
                 <tr key={shop.id}>
                 <td> {shop.id} </td>
                 <td>
-                <Link to={"/shop/" + shop.name}>{shop.name}</Link>
+                <Link to={{pathname:"/shop/" + shop.id, props: {id: shop.id}}}>{shop.name}</Link>
                 </td>
                 <td>{shop.description}</td>
                 <td>{shop.address}</td>
                 <td>{shop.location}</td>
                 <td>{shop.category}</td>
-                <td>{shop.creation_date}</td>
               </tr>
               );
             })}

@@ -48,14 +48,6 @@ function ShopForm(props) {
         onChange={props.onChange}
         />
              
-        <TextInput
-        id="creation_date"
-        label= "Creation date"
-        name="creation_date"
-        value={props.shop.creation_date}
-        onChange={props.onChange}
-        />
-             
         <input type="submit" value="Save" className="btn btn-primary" />
       </form>  
     );
