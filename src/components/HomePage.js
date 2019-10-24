@@ -7,6 +7,7 @@ function HomePage(){
         <p> Administra tu aplicación </p>
         <Link to="shops" className="btn btn-primary">Shops </Link>
         {" "}<Link to="users" className="btn btn-primary">Users</Link>
+        {" "}<Link to="login" className="btn btn-primary">LoginDummy</Link>
 
     </div>
     );

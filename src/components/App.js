@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from './ProductPage';
 import UsersPage from './UsersPage';
-      
+import LoginPage from './LoginPage';      
 
 function App(){
 
@@ -20,6 +20,7 @@ function App(){
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />
+        <Route path="/login" component={LoginPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
