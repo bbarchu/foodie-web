@@ -21,16 +21,12 @@ const ManageShopPage = props => {
     }
 
     function handleSubmit(event){
-
+        event.preventDefault();
         
         if(!formIsValid()) return;
 
-        fetch('https://taller2-herokuapp.com/api/admin/shops', {
+        fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
             body: JSON.stringify({
                 address: shop.address,
                 location: shop.location,
@@ -42,14 +38,19 @@ const ManageShopPage = props => {
         }).then(() => { 
             props.history.push("/shops");
             toast.success("Shop was added!");
-        });
+        }).catch((e) => console.log(e));
 
-        event.preventDefault();
     }
 
     function formIsValid(){
         const _errors = {};
         if(!shop.name) _errors.name= "Name is required";
+        if(!shop.category) _errors.category= "Category is required";
+        if(!shop.location) _errors.location= "Location is required";
+        if(!shop.address) _errors.address= "Address is required";
+        if(!shop.description) _errors.description= "Description is required";
+
+
 
         setErrors(_errors);
         return Object.keys(_errors).length === 0;

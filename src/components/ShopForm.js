@@ -11,7 +11,7 @@ function ShopForm(props) {
         name="name"
         value={props.shop.name}
         onChange={props.onChange}
-        //error={props.error.name}
+        error={props.errors.name}
 
         />
              
@@ -22,6 +22,8 @@ function ShopForm(props) {
         name="description"
         value={props.shop.description}
         onChange={props.onChange}
+        error={props.errors.description}
+
         />
            
         <TextInput
@@ -30,6 +32,8 @@ function ShopForm(props) {
         name="address"
         value={props.shop.address}
         onChange={props.onChange}
+        error={props.errors.address}
+
         />
              
         <TextInput
@@ -38,6 +42,8 @@ function ShopForm(props) {
         name="location"
         value={props.shop.location}
         onChange={props.onChange}
+        error={props.errors.location}
+
         />
              
         <TextInput
@@ -46,6 +52,8 @@ function ShopForm(props) {
         name="category"
         value={props.shop.category}
         onChange={props.onChange}
+        error={props.errors.category}
+
         />
              
         <input type="submit" value="Save" className="btn btn-primary" />
