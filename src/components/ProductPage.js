@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 class ProductPage extends React.Component {
  
@@ -8,21 +9,19 @@ class ProductPage extends React.Component {
   
 componentWillMount() {
   const { id } = this.props.location.props
-  //   fetch(`http://taller2-back.herokuapp.com/api/admin/shops/${id}`)
-
-
   fetch(`http://taller2-back.herokuapp.com/api/shops/${id}/products`)
   .then((response) => {
     return response.json()
   }).then( products => this.setState ({products: products}));
-
 }
-
 
     render() {
         return (
           <React.Fragment>
         <h2> Products </h2>
+        <Link className="btn btn-primary" to={{pathname:"/add-product", props: {id: this.props.location.props}}}>
+          Add product
+        </Link>
         <table className="table">
           <thead>
             <tr>

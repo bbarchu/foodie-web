@@ -10,7 +10,9 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from './ProductPage';
 import UsersPage from './UsersPage';
-import LoginPage from './LoginPage';      
+import LoginPage from './LoginPage'; 
+import ManageUserPage from './ManageUserPage';
+import ManageProductPage from './ManageProductPage';
 
 function App(){
 
@@ -25,7 +27,9 @@ function App(){
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
         <Route path="/shop/:slug" component={ProductPage} />
-        <Route path="/add-shop" component={ManageShopPage} />
+        <Route path="/add-shop" component={ManageUserPage} />
+        <Route path="/add-user" component={ManageShopPage}/>
+        <Route path="/add-product" component={ManageProductPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
