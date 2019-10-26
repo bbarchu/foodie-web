@@ -19,10 +19,8 @@ const ManageProductPage = props => {
     }
 
     function handleSubmit(event){
-        event.preventDefault();
-        
+        event.preventDefault();        
         if(!formIsValid()) return;
-
         fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
             method: 'POST',
             body: JSON.stringify({

@@ -44,6 +44,14 @@ class ShopsPage extends React.Component {
                 <td>{shop.address}</td>
                 <td>{shop.location}</td>
                 <td>{shop.category}</td>
+                {" · "}
+                <Link className="btn btn-primary" to="/editar-shop">
+                 Editar
+                </Link>
+                {" · "}
+                <Link className="btn btn-primary">
+                 Borrar
+                </Link>
               </tr>
               );
             })}

@@ -41,6 +41,13 @@ componentWillMount() {
                     <td>{product.description}</td>
                     <td>{product.category}</td>
                     <td>{product.price}</td>
+                    <Link className="btn btn-primary" to="/editar-product">
+                    Editar
+                    </Link>
+                    {" · "}
+                    <Link className="btn btn-primary">
+                    Borrar
+                    </Link>
               </tr>
               );
             })}
