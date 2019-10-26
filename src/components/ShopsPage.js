@@ -45,11 +45,11 @@ class ShopsPage extends React.Component {
                 <td>{shop.location}</td>
                 <td>{shop.category}</td>
                 {" · "}
-                <Link className="btn btn-primary" to="/editar-shop">
+                <Link className="btn btn-primary" to={{pathname:"/editar-shop/" + shop.id, props: {shop: shop}}}>
                  Editar
                 </Link>
                 {" · "}
-                <Link className="btn btn-primary">
+                <Link className="btn btn-primary" >
                  Borrar
                 </Link>
               </tr>
