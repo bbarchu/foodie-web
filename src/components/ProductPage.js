@@ -41,7 +41,7 @@ componentWillMount() {
                     <td>{product.description}</td>
                     <td>{product.category}</td>
                     <td>{product.price}</td>
-                    <Link className="btn btn-primary" to="/editar-product">
+                    <Link className="btn btn-primary" to="/edit-product">
                     Editar
                     </Link>
                     {" · "}

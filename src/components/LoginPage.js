@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import TextInput from './common/TextInput';
 import { toast } from 'react-toastify';
+import { withRouter } from 'react-router-dom';
 
 
 function LoginPage() {
-
+    
     const [errors, setErrors] = useState({});
     const [user, setUser] = useState({
         email:"",
@@ -17,9 +18,19 @@ function LoginPage() {
     }
 
     function handleSubmit(event){
+
         event.preventDefault();
         if(!formIsValid()) return;
-        toast.success("Conection success!");
+        fetch('http://taller2-back.herokuapp.com/api/admin/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: user.email,
+                password: user.contrasenia
+
+            })
+        }).then(() => {             
+            toast.success("Conection success!");
+        }).catch((e) => console.log(e));
     }
 
     function formIsValid(){
@@ -32,6 +43,8 @@ function LoginPage() {
     }
 
     return (
+        <React.Fragment>
+        <h1>Login to foodie</h1>
         <form onSubmit={handleSubmit}>
                     
             <TextInput
@@ -51,13 +64,15 @@ function LoginPage() {
             value={user.contrasenia}
             onChange={handleChange}
             error={errors.contrasenia}
+            type={"password"}
 
             />
 
             <input type="submit" value="Log in!" className="btn btn-primary" />
 
         </form>
+        </React.Fragment>
     );
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

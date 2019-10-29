@@ -12,6 +12,7 @@ function ProductForm(props) {
         value={props.product.name}
         onChange={props.onChange}
         error={props.errors.name}
+        type="text"
 
         />
              
@@ -23,6 +24,8 @@ function ProductForm(props) {
         value={props.product.description}
         onChange={props.onChange}
         error={props.errors.description}
+        type="text"
+
 
         />
            
@@ -33,6 +36,8 @@ function ProductForm(props) {
         value={props.product.price}
         onChange={props.onChange}
         error={props.errors.price}
+        type="text"
+
 
         />
              
@@ -44,6 +49,8 @@ function ProductForm(props) {
         value={props.product.category}
         onChange={props.onChange}
         error={props.errors.category}
+        type="text"
+
 
         />
              

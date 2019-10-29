@@ -13,7 +13,7 @@ function TextInput(props) {
               <div className="field">
                   <input
                     id={props.id}
-                    type="text"
+                    type={props.type}
                     name={props.name}
                     className="form-control"
                     value={props.value}
