@@ -13,6 +13,7 @@ import LoginPage from './LoginPage';
 import ManageUserPage from './ManageUserPage';
 import ManageProductPage from './ManageProductPage';
 import EditShop from './EditShop';
+import EditProduct from './EditProduct';
 
 function App(){
 
@@ -31,6 +32,7 @@ function App(){
         <Route path="/add-user" component={ManageShopPage}/>
         <Route path="/add-product" component={ManageProductPage}/>
         <Route path="/editar-shop/:slug" component={EditShop}/>
+        <Route path="/editar-producto/:slug" component={EditProduct}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>

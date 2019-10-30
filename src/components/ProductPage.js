@@ -41,7 +41,7 @@ componentWillMount() {
                     <td>{product.description}</td>
                     <td>{product.category}</td>
                     <td>{product.price}</td>
-                    <Link className="btn btn-primary" to="/edit-product">
+                    <Link className="btn btn-primary" to={{pathname:"/editar-producto/" + product.id, props: {product: product, shop: this.props.location.props}}}>
                     Editar
                     </Link>
                     {" · "}
