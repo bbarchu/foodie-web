@@ -28,8 +28,8 @@ function App(){
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
         <Route path="/shop/:slug" component={ProductPage} />
-        <Route path="/add-shop" component={ManageUserPage} />
-        <Route path="/add-user" component={ManageShopPage}/>
+        <Route path="/add-shop" component={ManageShopPage} />
+        <Route path="/add-user" component={ManageUserPage}/>
         <Route path="/add-product" component={ManageProductPage}/>
         <Route path="/editar-shop/:slug" component={EditShop}/>
         <Route path="/editar-producto/:slug" component={EditProduct}/>

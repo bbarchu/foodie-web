@@ -17,42 +17,72 @@ function UserForm(props) {
              
           
         <TextInput
-        id="description"
-        label="Description"
-        name="description"
-        value={props.user.description}
+        id="surname"
+        label="Surname"
+        name="surname"
+        value={props.user.surname}
         onChange={props.onChange}
-        error={props.errors.description}
+        error={props.errors.surname}
 
         />
            
         <TextInput
-        id="address"
-        label="Address"
-        name="address"
-        value={props.user.address}
+        id="email"
+        label="Email"
+        name="email"
+        value={props.user.email}
         onChange={props.onChange}
-        error={props.errors.address}
+        error={props.errors.email}
 
         />
              
         <TextInput
-        id="location"
-        label="Location"
-        name="location"
-        value={props.user.location}
+        id="phone"
+        label="phone"
+        name="phone"
+        value={props.user.phone}
         onChange={props.onChange}
-        error={props.errors.location}
+        error={props.errors.phone}
 
         />
              
         <TextInput
-        id="category"
-        label="Category"
-        name="category"
-        value={props.user.category}
+        id="password"
+        label="Password"
+        name="password"
+        value={props.user.password}
         onChange={props.onChange}
-        error={props.errors.category}
+        error={props.errors.password}
+
+        />
+
+        <TextInput
+        id="role"
+        label="Role"
+        name="role"
+        value={props.user.role}
+        onChange={props.onChange}
+        error={props.errors.role}
+
+        />
+
+        <TextInput
+        id="subscription"
+        label="Subscription"
+        name="subscription"
+        value={props.user.subscription}
+        onChange={props.onChange}
+        error={props.errors.subscription}
+
+        />
+
+        <TextInput
+        id="photo_url"
+        label="photo_url"
+        name="photo_url"
+        value={props.user.photo_url}
+        onChange={props.onChange}
+        error={props.errors.photo_url}
 
         />
              
