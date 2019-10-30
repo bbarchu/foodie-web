@@ -51,7 +51,7 @@ const ManageUserPage = props => {
         if(!user.name) _errors.name= "Name is required";
         if(!user.surname) _errors.surname= "Surname is required";
         if(!user.email) _errors.email= "Emailame is required";
-        if(!user.phone) _errors.name= "Phone is required";
+        if(!user.phone) _errors.phone= "Phone is required";
         if(!user.password) _errors.password= "Password is required";
         if(!user.role) _errors.role= "Role is required";
         if(!user.subscription) _errors.subscription= "Subscription is required";

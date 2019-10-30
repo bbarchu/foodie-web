@@ -14,6 +14,7 @@ import ManageUserPage from './ManageUserPage';
 import ManageProductPage from './ManageProductPage';
 import EditShop from './EditShop';
 import EditProduct from './EditProduct';
+import EditUser from './EditUser';
 
 function App(){
 
@@ -32,6 +33,7 @@ function App(){
         <Route path="/add-user" component={ManageUserPage}/>
         <Route path="/add-product" component={ManageProductPage}/>
         <Route path="/editar-shop/:slug" component={EditShop}/>
+        <Route path="/editar-user/:slug" component={EditUser}/>
         <Route path="/editar-producto/:slug" component={EditProduct}/>
         <Route component={NotFoundPage}/>
       </Switch>

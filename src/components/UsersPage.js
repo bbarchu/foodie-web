@@ -51,7 +51,7 @@ class UsersPage extends React.Component {
                         <td>{user.subscription}</td>
                         <td>{user.photo_url}</td>
                         <td>{user.creation_date}</td>
-                        <Link className="btn btn-primary" to="/editar-shop">
+                        <Link className="btn btn-primary" to={{pathname:"/editar-user/" + user.id, props: {user: user}}}>
                         Editar
                         </Link>
                         {" · "}

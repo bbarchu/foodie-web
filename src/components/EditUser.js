@@ -47,26 +47,10 @@ class EditUser extends React.Component {
     }
 
     
-    
+
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor={this.state.user.id}> Id </label>
-                    <div className="field">
-                        <input 
-                        id="id"
-                        label="Id"
-                        type="text" 
-                        name="id" 
-                        value={ this.state.user.id } 
-                        onChange={this.handleChange}
-                        className="form-control"
-                        readOnly
-                        />
-                    </div>
-                </div>
-
                 <TextInput
                 id="name"
                 label="Name"
@@ -78,37 +62,64 @@ class EditUser extends React.Component {
                     
                 
                 <TextInput
-                id="description"
-                label="Description"
-                name="description"
-                value={this.state.user.description}
+                id="surname"
+                label="Surname"
+                name="surname"
+                value={this.state.user.surname}
                 onChange={this.handleChange}
 
                 />
                 
                 <TextInput
-                id="address"
-                label="Address"
-                name="address"
-                value={this.state.user.address}
+                id="email"
+                label="Email"
+                name="email"
+                value={this.state.user.email}
                 onChange={this.handleChange}
 
                 />
                     
                 <TextInput
-                id="location"
-                label="Location"
-                name="location"
-                value={this.state.user.location}
+                id="phone"
+                label="phone"
+                name="phone"
+                value={this.state.user.phone}
                 onChange={this.handleChange}
 
                 />
                     
                 <TextInput
-                id="category"
-                label="Category"
-                name="category"
-                value={this.state.user.category}
+                id="password"
+                label="Password"
+                name="password"
+                value={this.state.user.password}
+                onChange={this.handleChange}
+
+                />
+
+                <TextInput
+                id="role"
+                label="Role"
+                name="role"
+                value={this.state.user.role}
+                onChange={this.handleChange}
+
+                />
+
+                <TextInput
+                id="subscription"
+                label="Subscription"
+                name="subscription"
+                value={this.state.user.subscription}
+                onChange={this.handleChange}
+
+                />
+
+                <TextInput
+                id="photo_url"
+                label="photo_url"
+                name="photo_url"
+                value={this.state.user.photo_url}
                 onChange={this.handleChange}
 
                 />
