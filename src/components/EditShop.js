@@ -37,15 +37,15 @@ class EditShop extends React.Component {
         if(!this.state.shop.description) _errors.description= "Description is required";
     
     
-        this.state.errors = _errors
-        return Object.keys(this.state.errors).length === 0;
+        this.setState({...this.state, ...{ errors: _errors}});
+        return Object.keys(_errors).length === 0;
     }  
     
     handleSubmit(event){
         event.preventDefault();
         console.log(this.state.shop)  
         console.log(this.state.shop.id)        
-        //if(!this.formIsValid()) return;
+        if(!this.formIsValid()) return;
         fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
             method: 'PUT',
             body: JSON.stringify({
@@ -64,21 +64,36 @@ class EditShop extends React.Component {
 
     }
 
-
+    
     handleChangeName({target}) {
-        this.setState({...this.state.shop, name : target.value});
+        const shop = this.state.shop
+        const update = { name : target.value}
+        const newShop = { ...shop, ...update }
+        this.setState({...this.state, ...{ shop: newShop}});
     }
     handleChangeAddress({target}) {
-        this.setState({...this.state.shop, address: target.value});
+        const shop = this.state.shop
+        const update = { address : target.value}
+        const newShop = { ...shop, ...update }
+        this.setState({...this.state, ...{ shop: newShop}});
     }
     handleChangeLocation({target}) {
-        this.setState({...this.state.shop, location: target.value});
+        const shop = this.state.shop
+        const update = { location : target.value}
+        const newShop = { ...shop, ...update }
+        this.setState({...this.state, ...{ shop: newShop}});
     }
     handleChangeCategory({target}) {
-        this.setState({...this.state.shop, category: target.value});
+        const shop = this.state.shop
+        const update = { category : target.value}
+        const newShop = { ...shop, ...update }
+        this.setState({...this.state, ...{ shop: newShop}});
     }
     handleChangeDescription({target}) {
-        this.setState({...this.state.shop, description: target.value});
+        const shop = this.state.shop
+        const update = { description : target.value}
+        const newShop = { ...shop, ...update }
+        this.setState({...this.state, ...{ shop: newShop}});
     }
 
     
@@ -106,6 +121,7 @@ class EditShop extends React.Component {
                 label="Name"
                 name="name"
                 value={this.state.shop.name}
+                error={this.state.errors.name}
                 onChange={this.handleChangeName}
 
                 />
@@ -116,6 +132,7 @@ class EditShop extends React.Component {
                 label="Description"
                 name="description"
                 value={this.state.shop.description}
+                error={this.state.errors.description}
                 onChange={this.handleChangeDescription}
 
                 />
@@ -125,6 +142,7 @@ class EditShop extends React.Component {
                 label="Address"
                 name="address"
                 value={this.state.shop.address}
+                error={this.state.errors.address}
                 onChange={this.handleChangeAddress}
 
                 />
@@ -135,6 +153,8 @@ class EditShop extends React.Component {
                 name="location"
                 value={this.state.shop.location}
                 onChange={this.handleChangeLocation}
+                error={this.state.errors.location}
+
 
                 />
                     
@@ -143,6 +163,7 @@ class EditShop extends React.Component {
                 label="Category"
                 name="category"
                 value={this.state.shop.category}
+                error={this.state.errors.category}
                 onChange={this.handleChangeCategory}
 
                 />
