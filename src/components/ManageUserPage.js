@@ -14,7 +14,7 @@ const ManageUserPage = props => {
         password: "",
         role: "",
         subscription: "",
-        photo_url: ""
+        photo_url: "http://asd.com"
     });
 
     function handleChange({target}){
@@ -27,7 +27,7 @@ const ManageUserPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch('http://taller2-back.herokuapp.com/api/admin/users', {
+        fetch('http://taller2-back.herokuapp.com/api/new_user', {
             method: 'POST',
             body: JSON.stringify({
                 name: user.name,

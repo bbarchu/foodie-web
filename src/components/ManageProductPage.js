@@ -11,6 +11,7 @@ const ManageProductPage = props => {
         description:"",
         category:"",
         price:"",
+        shop_id: props.location.props.id
     });
 
     function handleChange({target}){
@@ -19,12 +20,12 @@ const ManageProductPage = props => {
     }
 
     function handleSubmit(event){
-        event.preventDefault();        
+        event.preventDefault();
         if(!formIsValid()) return;
-        fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
+        fetch('http://taller2-back.herokuapp.com/api/admin/products', {
             method: 'POST',
             body: JSON.stringify({
-                shop_id:props.shop_id,
+                shop_id:product.shop_id,
                 price:product.price,
                 category: product.category,
                 name: product.name,

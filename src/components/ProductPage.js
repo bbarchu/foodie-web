@@ -19,12 +19,13 @@ componentWillMount() {
         return (
           <React.Fragment>
         <h2> Products </h2>
-        <Link className="btn btn-primary" to={{pathname:"/add-product", props: {id: this.props.location.props}}}>
+        <Link className="btn btn-primary" to={{pathname:"/add-product", props: {id: this.props.location.props.id}}}>
           Add product
         </Link>
         <table className="table">
           <thead>
             <tr>
+              <th>Pertenece al shop </th>
               <th>id</th>
               <th>name</th>
               <th>description</th>
@@ -36,6 +37,7 @@ componentWillMount() {
             {this.state.products.map ( product => {
               return ( 
                 <tr key={product.id}>
+                    <td> { this.props.location.props.id } </td>
                     <td> {product.id} </td>
                     <td>{product.name}</td>
                     <td>{product.description}</td>

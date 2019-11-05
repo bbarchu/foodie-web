@@ -18,7 +18,13 @@ class EditShop extends React.Component {
             errors:{}
             
         }
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeName = this.handleChangeName.bind(this);
+        this.handleChangeLocation = this.handleChangeLocation.bind(this);
+        this.handleChangeDescription = this.handleChangeDescription.bind(this);
+        this.handleChangeCategory = this.handleChangeCategory.bind(this);
+        this.handleChangeAddress = this.handleChangeAddress.bind(this);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
     
     
@@ -36,16 +42,43 @@ class EditShop extends React.Component {
     }  
     
     handleSubmit(event){
-        event.preventDefault();        
+        event.preventDefault();
+        console.log(this.state.shop)  
+        console.log(this.state.shop.id)        
         //if(!this.formIsValid()) return;
-        toast.success("Succesfull edit!");
+        fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: this.state.shop.id,
+                address: this.state.shop.address,
+                location: this.state.shop.location,
+                category: this.state.shop.category,
+                name: this.state.shop.name,
+                description: this.state.shop.description
+
+            })
+        }).then(() => { 
+            toast.success("Successfull edit");
+        }).catch((e) => console.log(e));
+
 
     }
 
 
-    handleChange({target}) {
-        this.setState({shop: target.value});
-        //this.setState({value: event.target.value});
+    handleChangeName({target}) {
+        this.setState({...this.state.shop, name : target.value});
+    }
+    handleChangeAddress({target}) {
+        this.setState({...this.state.shop, address: target.value});
+    }
+    handleChangeLocation({target}) {
+        this.setState({...this.state.shop, location: target.value});
+    }
+    handleChangeCategory({target}) {
+        this.setState({...this.state.shop, category: target.value});
+    }
+    handleChangeDescription({target}) {
+        this.setState({...this.state.shop, description: target.value});
     }
 
     
@@ -62,7 +95,6 @@ class EditShop extends React.Component {
                         type="text" 
                         name="id" 
                         value={ this.state.shop.id } 
-                        onChange={this.handleChange}
                         className="form-control"
                         readOnly
                         />
@@ -74,7 +106,7 @@ class EditShop extends React.Component {
                 label="Name"
                 name="name"
                 value={this.state.shop.name}
-                onChange={this.handleChange}
+                onChange={this.handleChangeName}
 
                 />
                     
@@ -84,7 +116,7 @@ class EditShop extends React.Component {
                 label="Description"
                 name="description"
                 value={this.state.shop.description}
-                onChange={this.handleChange}
+                onChange={this.handleChangeDescription}
 
                 />
                 
@@ -93,7 +125,7 @@ class EditShop extends React.Component {
                 label="Address"
                 name="address"
                 value={this.state.shop.address}
-                onChange={this.handleChange}
+                onChange={this.handleChangeAddress}
 
                 />
                     
@@ -102,7 +134,7 @@ class EditShop extends React.Component {
                 label="Location"
                 name="location"
                 value={this.state.shop.location}
-                onChange={this.handleChange}
+                onChange={this.handleChangeLocation}
 
                 />
                     
@@ -111,7 +143,7 @@ class EditShop extends React.Component {
                 label="Category"
                 name="category"
                 value={this.state.shop.category}
-                onChange={this.handleChange}
+                onChange={this.handleChangeCategory}
 
                 />
 
