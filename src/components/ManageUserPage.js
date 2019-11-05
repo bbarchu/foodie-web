@@ -27,7 +27,7 @@ const ManageUserPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch('http://taller2-back.herokuapp.com/api/new_user', {
+        fetch('https://taller2-back.herokuapp.com/api/new_user', {
             method: 'POST',
             body: JSON.stringify({
                 name: user.name,

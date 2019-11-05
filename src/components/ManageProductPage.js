@@ -22,7 +22,7 @@ const ManageProductPage = props => {
     function handleSubmit(event){
         event.preventDefault();
         if(!formIsValid()) return;
-        fetch('http://taller2-back.herokuapp.com/api/admin/products', {
+        fetch('https://taller2-back.herokuapp.com/api/admin/products', {
             method: 'POST',
             body: JSON.stringify({
                 shop_id:product.shop_id,

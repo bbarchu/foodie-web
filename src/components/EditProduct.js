@@ -43,7 +43,7 @@ class EditProduct extends React.Component {
     handleSubmit(event){
         event.preventDefault();
         if(!this.formIsValid()) return;
-        fetch('http://taller2-back.herokuapp.com/api/admin/products', {
+        fetch('https://taller2-back.herokuapp.com/api/admin/products', {
             method: 'PUT',
             body: JSON.stringify({
                 id: this.state.product.id,

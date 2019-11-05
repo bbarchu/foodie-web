@@ -7,7 +7,7 @@ class ShopsPage extends React.Component {
   };
 
   componentWillMount() {
-    fetch('http://taller2-back.herokuapp.com/api/shops')
+    fetch('https://taller2-back.herokuapp.com/api/shops')
     .then((response) => {
       return response.json()
     }).then( shops => this.setState ({shops: shops}));

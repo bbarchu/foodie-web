@@ -46,7 +46,7 @@ class EditShop extends React.Component {
         console.log(this.state.shop)  
         console.log(this.state.shop.id)        
         if(!this.formIsValid()) return;
-        fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
+        fetch('https://taller2-back.herokuapp.com/api/admin/shops', {
             method: 'PUT',
             body: JSON.stringify({
                 id: this.state.shop.id,

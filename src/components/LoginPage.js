@@ -21,7 +21,7 @@ function LoginPage(props) {
 
         event.preventDefault();
         if(!formIsValid()) return;
-        fetch('http://taller2-back.herokuapp.com/api/admin/login', {
+        fetch('https://taller2-back.herokuapp.com/api/admin/login', {
             method: 'POST',
             body: JSON.stringify({
                 email: user.email,

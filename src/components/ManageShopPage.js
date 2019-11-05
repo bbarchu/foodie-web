@@ -25,7 +25,7 @@ const ManageShopPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch('http://taller2-back.herokuapp.com/api/admin/shops', {
+        fetch('https://taller2-back.herokuapp.com/api/admin/shops', {
             method: 'POST',
             body: JSON.stringify({
                 address: shop.address,

@@ -9,7 +9,7 @@ class UsersPage extends React.Component {
   
   componentWillMount() {
 
-    fetch(`http://taller2-back.herokuapp.com/api/admin/users`)
+    fetch(`https://taller2-back.herokuapp.com/api/admin/users`)
     .then((response) => {
       return response.json()
     }).then( users => this.setState ({users: users}));
