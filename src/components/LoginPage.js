@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import TextInput from './common/TextInput';
 import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { createBrowserHistory } from "history";
 
-
-function LoginPage() {
-    
+function LoginPage(props) {
     const [errors, setErrors] = useState({});
     const [user, setUser] = useState({
         email:"",
@@ -28,8 +28,9 @@ function LoginPage() {
                 password: user.contrasenia
 
             })
-        }).then(() => {             
+        }).then(() => {
             toast.success("Conection success!");
+            props.history.push("/home");            
         }).catch((e) => console.log(e));
     }
 
@@ -43,6 +44,8 @@ function LoginPage() {
     }
 
     return (
+        <div className="container-fluid">
+        <ToastContainer autoClose={4000} hideProgressBar />
         <React.Fragment>
         <h1>Login to foodie</h1>
         <form onSubmit={handleSubmit}>
@@ -72,6 +75,7 @@ function LoginPage() {
 
         </form>
         </React.Fragment>
+        </div>
     );
 }
 

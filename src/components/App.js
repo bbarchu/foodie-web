@@ -9,12 +9,13 @@ import ManageShopPage from './ManageShopPage';
 import { ToastContainer } from 'react-toastify';
 import ProductPage from './ProductPage';
 import UsersPage from './UsersPage';
-import LoginPage from './LoginPage'; 
 import ManageUserPage from './ManageUserPage';
 import ManageProductPage from './ManageProductPage';
 import EditShop from './EditShop';
 import EditProduct from './EditProduct';
 import EditUser from './EditUser';
+import LoginPage from './LoginPage';
+
 
 function App(){
 
@@ -23,9 +24,9 @@ function App(){
       <ToastContainer autoClose={4000} hideProgressBar />
       <Header />
       <Switch>
-        <Route path="/" exact component={HomePage} />
+        <Route path="/" exact component={LoginPage} />
+        <Route path="/home" component={HomePage} />
         <Route path="/about" component={AboutPage} />
-        <Route path="/login" component={LoginPage} />
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
         <Route path="/shop/:slug" component={ProductPage} />
