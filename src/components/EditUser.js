@@ -21,7 +21,17 @@ class EditUser extends React.Component {
             errors:{}
             
         }
-        this.handleChange = this.handleChange.bind(this);
+        //this.handleChange = this.handleChange.bind(this);
+        this.handleChangeEmail = this.handleChangeEmail.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this)
+        this.handleChangePhone = this.handleChangePhone.bind(this)
+        //this.handleChangePhoto = this.handleChangePhoto.bind(this)
+        this.handleChangeRole = this.handleChangeRole.bind(this)
+        this.handleChangeSubscription = this.handleChangeSubscription.bind(this)
+        this.handleChangeName = this.handleChangeName.bind(this)
+        this.handleChangeSurname = this.handleChangeSurname.bind(this)
+
+        this.handleSubmit = this.handleSubmit.bind(this);
       }
     
     
@@ -35,17 +45,95 @@ class EditUser extends React.Component {
     
     handleSubmit(event){
         event.preventDefault();        
-        //if(!this.formIsValid()) return;
-        toast.success("Succesfull edit!");
-
+        //this.setState({user: target.value});
+        let user = this.state.user;
+        let id = user.id
+        console.log('A VER QUE MIERDA TIENE ESTO')
+        console.log(user)
+        fetch(`https://taller2-back.herokuapp.com/api/admin/users/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                name: user.name,
+                surname: user.surname,
+                email: user.email,
+                password: user.password,
+                phone: user.phone,
+                role: user.role,
+                subscription: user.subscription
+            })
+        }).then(() => { 
+            toast.success("Successfull edit");
+        }).catch((e) => console.log(e));
     }
 
 
     handleChange({target}) {
         this.setState({user: target.value});
-        //this.setState({value: event.target.value});
+        let user = this.state.user;
+        fetch('https://taller2-back.herokuapp.com/api/admin/users/${user.id}', {
+            method: 'PUT',
+            body: JSON.stringify({
+                name: user.name,
+                surname: user.surname,
+                email: user.email,
+                password: user.password,
+                phone: user.phone,
+                role: user.role,
+                subscription: user.subscription
+            })
+        }).then(() => { 
+            toast.success("Successfull edit");
+        }).catch((e) => console.log(e));
     }
 
+    handleChangeName({target}) {
+        const user = this.state.user
+        const update = { name: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangeSurname({target}) {
+        const user = this.state.user
+        const update = { surname: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangePassword({target}) {
+        const user = this.state.user
+        const update = { password: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangePhone({target}) {
+        const user = this.state.user
+        const update = { phone: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangeRole({target}) {
+        const user = this.state.user
+        const update = { role: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangeSubscription({target}) {
+        const user = this.state.user
+        const update = { subscription: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
+
+    handleChangeEmail({target}) {
+        const user = this.state.user
+        const update = { email: target.value }
+        const newUser = { ...user, ...update }
+        this.setState({...this.state, ...{ user: newUser}})
+    }
     
 
     render(){
@@ -56,7 +144,7 @@ class EditUser extends React.Component {
                 label="Name"
                 name="name"
                 value={this.state.user.name}
-                onChange={this.handleChange}
+                onChange={this.handleChangeName}
 
                 />
                     
@@ -66,7 +154,7 @@ class EditUser extends React.Component {
                 label="Surname"
                 name="surname"
                 value={this.state.user.surname}
-                onChange={this.handleChange}
+                onChange={this.handleChangeSurname}
 
                 />
                 
@@ -75,7 +163,7 @@ class EditUser extends React.Component {
                 label="Email"
                 name="email"
                 value={this.state.user.email}
-                onChange={this.handleChange}
+                onChange={this.handleChangeEmail}
 
                 />
                     
@@ -84,7 +172,7 @@ class EditUser extends React.Component {
                 label="phone"
                 name="phone"
                 value={this.state.user.phone}
-                onChange={this.handleChange}
+                onChange={this.handleChangePhone}
 
                 />
                     
@@ -93,7 +181,7 @@ class EditUser extends React.Component {
                 label="Password"
                 name="password"
                 value={this.state.user.password}
-                onChange={this.handleChange}
+                onChange={this.handleChangePassword}
 
                 />
 
@@ -102,7 +190,7 @@ class EditUser extends React.Component {
                 label="Role"
                 name="role"
                 value={this.state.user.role}
-                onChange={this.handleChange}
+                onChange={this.handleChangeRole}
 
                 />
 
@@ -111,7 +199,7 @@ class EditUser extends React.Component {
                 label="Subscription"
                 name="subscription"
                 value={this.state.user.subscription}
-                onChange={this.handleChange}
+                onChange={this.handleChangeSubscription}
 
                 />
 
@@ -120,7 +208,7 @@ class EditUser extends React.Component {
                 label="photo_url"
                 name="photo_url"
                 value={this.state.user.photo_url}
-                onChange={this.handleChange}
+                onChange={this.handleChangePhoto}
 
                 />
 
