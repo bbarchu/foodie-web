@@ -15,6 +15,7 @@ import EditShop from './EditShop';
 import EditProduct from './EditProduct';
 import EditUser from './EditUser';
 import LoginPage from './LoginPage';
+import DeliveriesStatusPage from './DeliveriesStatusPage';
 
 
 function App(){
@@ -29,6 +30,7 @@ function App(){
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
+        <Route path="/deliveries_status" component={DeliveriesStatusPage} />
         <Route path="/shop/:slug" component={ProductPage} />
         <Route path="/add-shop" component={ManageShopPage} />
         <Route path="/add-user" component={ManageUserPage}/>
