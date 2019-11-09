@@ -35,9 +35,16 @@ const ManageShopPage = props => {
                 description: shop.description
 
             })
-        }).then(() => { 
-            props.history.push("/shops");
-            toast.success("Shop was added!");
+        }).then((res) => {
+            if (res.ok){
+                props.history.push("/users");
+                toast.success("Shop was added!")
+                
+            }
+            else{
+                toast.error("Can't add Shop")
+                
+            }
         }).catch((e) => console.log(e));
 
     }

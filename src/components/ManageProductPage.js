@@ -32,9 +32,14 @@ const ManageProductPage = props => {
                 description: product.description
 
             })
-        }).then(() => { 
-            props.history.push("/shops");
-            toast.success("product was added!");
+        }).then((res) => {
+            if (res.ok){
+                props.history.push("/users");
+                toast.success("Product was added!")
+            }
+            else{
+                toast.error("Can't add Product")              
+            }
         }).catch((e) => console.log(e));
 
     }

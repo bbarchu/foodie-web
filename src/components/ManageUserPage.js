@@ -40,9 +40,14 @@ const ManageUserPage = props => {
                 subscription: user.subscription,
                 photo_url: user.photo_url
             })
-        }).then(() => { 
-            props.history.push("/users");
-            toast.success("User was added!");
+        }).then((res) => {
+            if (res.ok){
+                props.history.push("/users");
+                toast.success("User was added!")
+            }
+            else{
+                toast.error("Can't add user")              
+            }
         }).catch((e) => console.log(e));
 
     }
@@ -57,6 +62,8 @@ const ManageUserPage = props => {
         if(!user.role) _errors.role= "Role is required";
         if(!user.subscription) _errors.subscription= "Subscription is required";
       
+
+
         setErrors(_errors);
         return Object.keys(_errors).length === 0;
     }
