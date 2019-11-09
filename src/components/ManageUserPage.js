@@ -28,7 +28,7 @@ const ManageUserPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch(url.BASE_URL + 'api/new_user', {
+        fetch(url.BASE_URL + '/api/new_user', {
             method: 'POST',
             body: JSON.stringify({
                 name: user.name,
