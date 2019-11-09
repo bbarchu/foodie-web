@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import url from './common/apilink.json';
 class UsersPage extends React.Component {
  
 	state = {
@@ -9,7 +9,7 @@ class UsersPage extends React.Component {
   
   componentWillMount() {
 
-    fetch(`https://taller2-back.herokuapp.com/api/admin/users`)
+    fetch(url.BASE_URL+`/api/admin/users`)
     .then((response) => {
       return response.json()
     }).then( users => this.setState ({users: users}));

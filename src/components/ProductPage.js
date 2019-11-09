@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-
+import url from './common/apilink.json';
 class ProductPage extends React.Component {
  
 	state = {
@@ -9,7 +9,7 @@ class ProductPage extends React.Component {
   
 componentWillMount() {
   const { id } = this.props.location.props
-  fetch(`https://taller2-back.herokuapp.com/api/shops/${id}/products`)
+  fetch(url.BASE_URL + `/api/shops/${id}/products`)
   .then((response) => {
     return response.json()
   }).then( products => this.setState ({products: products}));

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import url from './common/apilink.json';
 class ShopsPage extends React.Component {
 	state = {
     shops: []
   };
 
   componentWillMount() {
-    fetch('https://taller2-back.herokuapp.com/api/shops')
+    fetch(url.BASE_URL + '/api/shops')
     .then((response) => {
       return response.json()
     }).then( shops => this.setState ({shops: shops}));

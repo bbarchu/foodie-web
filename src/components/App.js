@@ -17,7 +17,6 @@ import EditUser from './EditUser';
 import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
 
-
 function App(){
 
   return (

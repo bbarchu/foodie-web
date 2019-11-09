@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import TextInput from './common/TextInput';
 import { toast } from 'react-toastify';
-
-
+import url from './common/apilink.json';
 class EditUser extends React.Component {
     constructor(props) {
         super(props);
@@ -50,7 +49,7 @@ class EditUser extends React.Component {
         let id = user.id
         console.log('A VER QUE MIERDA TIENE ESTO')
         console.log(user)
-        fetch(`https://taller2-back.herokuapp.com/api/admin/users/${id}`, {
+        fetch(url.BASE_URL + `/api/admin/users/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: user.name,

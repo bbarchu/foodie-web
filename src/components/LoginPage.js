@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { createBrowserHistory } from "history";
-
+import url from './common/apilink.json';
 function LoginPage(props) {
     const [errors, setErrors] = useState({});
     const [user, setUser] = useState({
@@ -21,7 +21,7 @@ function LoginPage(props) {
 
         event.preventDefault();
         if(!formIsValid()) return;
-        fetch('https://taller2-back.herokuapp.com/api/admin/login', {
+        fetch(url.BASE_URL + '/api/admin/login', {
             method: 'POST',
             body: JSON.stringify({
                 email: user.email,

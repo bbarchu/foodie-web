@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextInput from './common/TextInput';
 import { toast } from 'react-toastify';
-
+import url from './common/apilink.json';
 
 class EditProduct extends React.Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class EditProduct extends React.Component {
     handleSubmit(event){
         event.preventDefault();
         if(!this.formIsValid()) return;
-        fetch('https://taller2-back.herokuapp.com/api/admin/products', {
+        fetch( url.BASE_URL + '/api/admin/products', {
             method: 'PUT',
             body: JSON.stringify({
                 id: this.state.product.id,

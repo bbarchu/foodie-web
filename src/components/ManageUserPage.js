@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import UserForm from './UserForm';
 import { toast } from 'react-toastify';
+import url from './common/apilink.json';
 
 const ManageUserPage = props => {
     const [errors, setErrors] = useState({});
@@ -27,7 +28,7 @@ const ManageUserPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch('https://taller2-back.herokuapp.com/api/new_user', {
+        fetch(url.BASE_URL + 'api/new_user', {
             method: 'POST',
             body: JSON.stringify({
                 name: user.name,

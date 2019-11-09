@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ShopForm from './ShopForm';
 import { toast } from 'react-toastify';
-
+import url from './common/apilink.json';
 const ManageShopPage = props => {
     const [errors, setErrors] = useState({});
     const [shop, setShop] = useState({
@@ -25,7 +25,7 @@ const ManageShopPage = props => {
         
         if(!formIsValid()) return;
 
-        fetch('https://taller2-back.herokuapp.com/api/admin/shops', {
+        fetch( url.BASE_URL + '/api/admin/shops', {
             method: 'POST',
             body: JSON.stringify({
                 address: shop.address,
