@@ -34,12 +34,20 @@ const ManageProductPage = props => {
             })
         }).then((res) => {
             if (res.ok){
-                props.history.push("/users");
+                props.history.push("/shops");
                 toast.success("Product was added!")
             }
             else{
                 toast.error("Can't add Product")              
             }
+        }).then((resjson) => {
+            
+            const _errors = {};
+            if(resjson.name) _errors.name= resjson.name[0];
+            if(resjson.category) _errors.category= resjson.category[0];
+            if(resjson.price) _errors.price= resjson.price[0];
+            if(resjson.description) _errors.description= resjson.description[0];
+            setErrors(_errors);
         }).catch((e) => console.log(e));
 
     }

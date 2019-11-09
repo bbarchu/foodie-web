@@ -49,16 +49,16 @@ const ManageUserPage = props => {
                 toast.error("Can't add user")
                 return res.json()              
             }
-        }).then((res) => {
+        }).then((resjson) => {
             
             const _errors = {};
-            if(res.name) _errors.name= res.name[0];
-            if(res.surname) _errors.surname= res.surname[0];
-            if(res.email) _errors.email= res.email[0];
-            if(res.phone) _errors.phone= res.phone[0];
-            if(res.password) _errors.password= res.password[0];
-            if(res.role) _errors.role= res.role[0];
-            if(res.subscription) _errors.subscription= res.subscription[0];
+            if(resjson.name) _errors.name= resjson.name[0];
+            if(resjson.surname) _errors.surname= resjson.surname[0];
+            if(resjson.email) _errors.email= resjson.email[0];
+            if(resjson.phone) _errors.phone= resjson.phone[0];
+            if(resjson.password) _errors.password= resjson.password[0];
+            if(resjson.role) _errors.role= resjson.role[0];
+            if(resjson.subscription) _errors.subscription= resjson.subscription[0];
             setErrors(_errors);
         })
         .catch((e) => console.log(e));
