@@ -9,6 +9,7 @@ function Header() {
             <NavLink activeStyle={activeStyle} to="/shops">Shops</NavLink> {" | "} 
             <NavLink activeStyle={activeStyle} to="/users"> Users </NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/deliveries_status"> Deliveries </NavLink> {" | "}
+            <NavLink activeStyle={activeStyle} to="/stats"> Stats </NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/about"> About </NavLink>
         </nav>
     );

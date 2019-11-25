@@ -1,6 +1,7 @@
 import React from 'react';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
+import StatsPage from './StatsPage';
 import Header from './common/Header';
 import { Route , Switch } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
@@ -29,6 +30,7 @@ function App(){
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
         <Route path="/users" component={UsersPage} />
+        <Route path="/stats" component={StatsPage} />
         <Route path="/deliveries_status" component={DeliveriesStatusPage} />
         <Route path="/shop/:slug" component={ProductPage} />
         <Route path="/add-shop" component={ManageShopPage} />
@@ -37,6 +39,7 @@ function App(){
         <Route path="/editar-shop/:slug" component={EditShop}/>
         <Route path="/editar-user/:slug" component={EditUser}/>
         <Route path="/editar-producto/:slug" component={EditProduct}/>
+
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
