@@ -15,22 +15,46 @@ class ShopsPage extends React.Component {
     }).then( shops => this.setState ({shops: shops}));
   }
 
-  handleClickDelete() {
-    //TODO
+  handleClickDelete(idShop) {
+
     let opcion = confirm("Estas seguro que lo quieres desactivar?");
     if (opcion == false) {
       return;
     }
+    fetch(url.BASE_URL + '/api/admin/shops/'+idShop, {
+      method: 'DELETE',
+  }).then(() => { 
     toast.success("Se ha desactivado satisfactoriamente!")
+    this.componentWillMount()  
+  })
   }
+  
 
-  handleClickActive(){
-    //TODO
+  handleClickActive(idShop) {
     let opcion = confirm("Estas seguro que lo quieres activar?");
     if (opcion == false) {
       return;
     }
-    toast.success("Se ha activado satisfactoriamente!")
+    fetch(url.BASE_URL + '/api/admin/shops', {
+      method: 'PUT',
+      body: JSON.stringify({
+          id: idShop,
+          active: true
+      })
+    }).then(() => { 
+        toast.success("Se ha activado satisfactoriamente!")
+        this.componentWillMount()  
+      })
+  }
+
+  esActivo(activo){
+    console.log(activo)
+    if(activo){
+      return "True";
+    }
+    else{
+      return "False";
+    }
   }
 
 
@@ -50,7 +74,7 @@ class ShopsPage extends React.Component {
               <th>Address</th>
               <th>Location</th>
               <th>Category</th>
-              <th>Is active</th>
+              <th>Active</th>
               <th></th>
               <th></th>
               <th></th>
@@ -69,18 +93,18 @@ class ShopsPage extends React.Component {
                 <td>{shop.address}</td>
                 <td>{shop.location}</td>
                 <td>{shop.category}</td>
-                <td></td>
+                <td>{this.esActivo(shop.active)}</td>
                 
                 <Link className="btn btn-primary" to={{pathname:"/editar-shop/" + shop.id, props: {shop: shop}}}>
                  Editar
                 </Link>
                 
-                <Link className="btn btn-danger" onClick={this.handleClickDelete} >
-                 Borrar
-                </Link>
-                <Link className="btn btn-success" onClick={this.handleClickActive}>
+                <button className="btn btn-danger" onClick={() => this.handleClickDelete(shop.id)} >
+                 Desactivar
+                </button>
+                <button className="btn btn-success" onClick={() => this.handleClickActive(shop.id)}>
                     Activar
-                    </Link>
+                </button>
               </tr>
               );
             })}
