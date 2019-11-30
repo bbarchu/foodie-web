@@ -2,7 +2,7 @@ import React from 'react';
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import Header from './common/Header';
-import { Route , Switch } from 'react-router-dom';
+import { Route , Switch, withRouter } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
 import ShopsPage from './ShopsPage';
 import ManageShopPage from './ManageShopPage';
@@ -18,11 +18,15 @@ import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
 
 function App(){
-
+  const HeaderWithRouter = withRouter(props => <Header {...props}/>);
   return (
     <div className="container-fluid">
       <ToastContainer autoClose={4000} hideProgressBar />
-      <Header />
+     
+      
+
+      <HeaderWithRouter />
+      
       <Switch>
         <Route path="/" exact component={LoginPage} />
         <Route path="/home" component={HomePage} />
