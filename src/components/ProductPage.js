@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import url from './common/apilink.json';
+import { toast } from 'react-toastify';
+
 class ProductPage extends React.Component {
  
 	state = {
@@ -15,6 +17,24 @@ componentWillMount() {
   }).then( products => this.setState ({products: products}));
 }
 
+  handleClickDelete() {
+    //TODO
+    let opcion = confirm("Estas seguro que lo quieres desactivar?");
+    if (opcion == false) {
+      return;
+    }
+    toast.success("Se ha desactivado satisfactoriamente!")
+  }
+
+  handleClickActive(){
+    //TODO
+    let opcion = confirm("Estas seguro que lo quieres activar?");
+    if (opcion == false) {
+      return;
+    }
+    toast.success("Se ha activado satisfactoriamente!")
+  }
+  
     render() {
         return (
           <React.Fragment>
@@ -26,11 +46,15 @@ componentWillMount() {
           <thead>
             <tr>
               <th>Pertenece al shop </th>
-              <th>id</th>
-              <th>name</th>
-              <th>description</th>
-              <th>category</th>
-              <th>price</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Descripcion</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Is active</th>
+              <th></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -43,12 +67,15 @@ componentWillMount() {
                     <td>{product.description}</td>
                     <td>{product.category}</td>
                     <td>{product.price}</td>
+                    <td></td>
                     <Link className="btn btn-primary" to={{pathname:"/editar-producto/" + product.id, props: {product: product, shop: this.props.location.props}}}>
                     Editar
                     </Link>
-                    {" · "}
-                    <Link className="btn btn-primary">
-                    Borrar
+                    <Link className="btn btn-danger" onClick={this.handleClickDelete}>
+                    Desactivar
+                    </Link>
+                    <Link className="btn btn-success" onClick={this.handleClickActive}>
+                    Activar
                     </Link>
               </tr>
               );

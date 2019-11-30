@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import url from './common/apilink.json';
+import { toast } from 'react-toastify';
+
 class UsersPage extends React.Component {
  
 	state = {
@@ -15,6 +17,24 @@ class UsersPage extends React.Component {
     }).then( users => this.setState ({users: users}));
   }
 
+  handleClickDelete() {
+    //TODO
+    let opcion = confirm("Estas seguro que lo quieres desactivar?");
+    if (opcion == false) {
+      return;
+    }
+    toast.success("Se ha desactivado satisfactoriamente!")
+  }
+
+  handleClickActive(){
+    //TODO
+    let opcion = confirm("Estas seguro que lo quieres activar?");
+    if (opcion == false) {
+      return;
+    }
+    toast.success("Se ha activado satisfactoriamente!")
+  }
+
     render() {
         return (
           <React.Fragment>
@@ -25,16 +45,19 @@ class UsersPage extends React.Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th>id</th>
-                  <th>name</th>
-                  <th>surname</th>
-                  <th>email</th>
-                  <th>phone</th>
-                  <th>password</th>
-                  <th>role</th>
-                  <th>subscription</th>
-                  <th>photo_url</th>
-                  <th>creation_date</th>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Surname</th>
+                  <th>E-mail</th>
+                  <th>Phone</th>
+                  <th>Password</th>
+                  <th>Role</th>
+                  <th>Subscription</th>
+                  <th>Photo_url</th>
+                  <th>Creation date</th>
+                  <th>Is active</th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -51,14 +74,17 @@ class UsersPage extends React.Component {
                         <td>{user.subscription}</td>
                         <td>{user.photo_url}</td>
                         <td>{user.creation_date}</td>
+                        <td></td>
                         <Link className="btn btn-primary" to={{pathname:"/editar-user/" + user.id, props: {user: user}}}>
-                        Editar
+                        Editar                       
                         </Link>
-                        {" · "}
-                        <Link className="btn btn-primary">
+                    
+                        <Link className="btn btn-danger" onClick={this.handleClickDelete}>
                         Borrar
                         </Link>
-                        {" · "}
+                        <Link className="btn btn-success" onClick={this.handleClickActive}>
+                        Activar
+                        </Link>
                   </tr>
                 );
               })}
