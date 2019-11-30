@@ -16,6 +16,7 @@ import EditProduct from './EditProduct';
 import EditUser from './EditUser';
 import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
+import Balance from './Balance';
 
 function App(){
   const HeaderWithRouter = withRouter(props => <Header {...props}/>);
@@ -41,6 +42,7 @@ function App(){
         <Route path="/editar-shop/:slug" component={EditShop}/>
         <Route path="/editar-user/:slug" component={EditUser}/>
         <Route path="/editar-producto/:slug" component={EditProduct}/>
+        <Route path="/balance" component={Balance}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
