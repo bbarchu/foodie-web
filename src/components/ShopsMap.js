@@ -23,6 +23,7 @@ const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
             key={marker.name}
             onClick={onClick}
             position={{ lat: lat, lng: lng }}
+            options={{icon: "https://mt.google.com/vt/icon/name=icons/spotlight/restaurant_search_L_8x.png&scale=1.5"}}
           >
             {props.selectedMarker === marker &&
               <InfoWindow>
@@ -30,7 +31,7 @@ const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
                   <h6>{marker.name}</h6>
                   <p>id: {marker.id}</p>
                 </div>
-              </InfoWindow>}
+              </InfoWindow>
             }
           </Marker>
         )
@@ -59,12 +60,18 @@ export default class ShopsMap extends Component {
     this.setState({ selectedMarker: marker })
   }
   render() {
+    //require('dotenv').config();
+    var google_url="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places";
+    if (typeof process.env.REACT_APP_GOOGLE_API_KEY !== 'undefined') {
+        google_url = google_url + `&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+    }
+    //console.log(process.env.REACT_APP_TEST)
     return (
       <MapWithAMarker
         selectedMarker={this.state.selectedMarker}
         markers={this.state.shelters}
         onClick={this.handleClick}
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL={google_url}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}

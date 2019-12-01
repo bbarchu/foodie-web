@@ -8,17 +8,27 @@ import {
   InfoWindow
 } from "react-google-maps"
 
+const icon_available = "https://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=•"
+const icon_busy = "https://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-b.png&ax=43&ay=48&text=•"
+
 const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
 
   return (
     <GoogleMap defaultZoom={12} defaultCenter={{ lat: -34.6134406, lng: -58.5137217 }}>
       {props.markers.map(marker => {
         const onClick = props.onClick.bind(this, marker)
+        var icon = null
+        if (marker.available) {
+          icon = icon_available
+        } else {
+          icon = icon_busy
+        }
         return (
           <Marker
             key={marker.user_id}
             onClick={onClick}
             position={{ lat: marker.lat, lng: marker.lng }}
+            options={{icon: icon}}
           >
             {props.selectedMarker === marker &&
               <InfoWindow>
@@ -28,7 +38,7 @@ const MapWithAMarker = compose(withScriptjs, withGoogleMap)(props => {
                   <p>Last Updated: {marker.last_updated}</p>
                   <p>Disponible: {marker.available.toString()}</p>
                 </div>
-              </InfoWindow>}
+              </InfoWindow>
             }
           </Marker>
         )
@@ -87,12 +97,16 @@ export default class DeliveriesMap extends Component {
   }
   render() {
     if (this.state.ready){
+    var google_url="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places";
+    if (typeof process.env.REACT_APP_GOOGLE_API_KEY !== 'undefined') {
+        google_url = google_url + `&key=${process.env.REACT_APP_GOOGLE_API_KEY}`;
+    }
     return (
       <MapWithAMarker
         selectedMarker={this.state.selectedMarker}
         markers={this.state.deliveries}
         onClick={this.handleClick}
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL={google_url}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
