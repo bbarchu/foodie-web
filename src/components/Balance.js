@@ -62,7 +62,7 @@ class Balance extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.filter(user => user.role == "delivery")
+                {this.state.users.filter(user => user.role === "delivery")
                 .map ( user => {
                   return ( 
                     <tr key={user.id}>

@@ -18,7 +18,7 @@ class ShopsPage extends React.Component {
   handleClickDelete(idShop) {
 
     let opcion = confirm("Estas seguro que lo quieres desactivar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/shops/'+idShop, {
@@ -32,7 +32,7 @@ class ShopsPage extends React.Component {
 
   handleClickActive(idShop) {
     let opcion = confirm("Estas seguro que lo quieres activar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/shops', {

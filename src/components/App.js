@@ -18,6 +18,7 @@ import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
 import Balance from './Balance';
 import ManageSuscription from './ManageSuscription';
+import StatsPage from './StatsPage';
 
 function App(){
   const HeaderWithRouter = withRouter(props => <Header {...props}/>);
@@ -45,6 +46,7 @@ function App(){
         <Route path="/editar-producto/:slug" component={EditProduct}/>
         <Route path="/balance" component={Balance}/>
         <Route path="/suscription" component={ManageSuscription}/>
+        <Route path="/stats" component={StatsPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>

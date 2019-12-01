@@ -20,7 +20,7 @@ componentWillMount() {
 handleClickDelete(idProduct) {
 
   let opcion = confirm("Estas seguro que lo quieres desactivar?");
-  if (opcion == false) {
+  if (opcion === false) {
     return;
   }
   fetch(url.BASE_URL + '/api/admin/products/'+idProduct, {
@@ -34,7 +34,7 @@ handleClickDelete(idProduct) {
 
 handleClickActive(idProduct) {
   let opcion = confirm("Estas seguro que lo quieres activar?");
-  if (opcion == false) {
+  if (opcion === false) {
     return;
   }
   fetch(url.BASE_URL + '/api/admin/products', {

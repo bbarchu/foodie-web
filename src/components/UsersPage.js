@@ -20,7 +20,7 @@ class UsersPage extends React.Component {
   handleClickDelete(userId) {
 
     let opcion = confirm("Estas seguro que lo quieres desactivar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/users/'+userId, {
@@ -35,7 +35,7 @@ class UsersPage extends React.Component {
   handleClickActive(userId) {
     console.log(userId)
     let opcion = confirm("Estas seguro que lo quieres activar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/users/'+userId, {
