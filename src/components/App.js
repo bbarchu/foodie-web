@@ -37,7 +37,7 @@ function App(){
         <Route path="/home" component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
-        <Route path="/shopsMaps" component={ShopsMap} />
+        <Route path="/shops_map" component={ShopsMap} />
         <Route path="/users" component={UsersPage} />
         <Route path="/deliveries_status" component={DeliveriesStatusPage} />
         <Route path="/deliveries_map" component={DeliveriesMap} />

@@ -19,9 +19,11 @@ function Header(props) {
         <div>{HeaderWithRouter() && 
             <nav>
             <NavLink activeStyle={activeStyle} to="/home" >Home</NavLink> {" | "} 
-            <NavLink activeStyle={activeStyle} to="/shops">Shops</NavLink> {" | "} 
+            <NavLink activeStyle={activeStyle} to="/shops">Shops</NavLink> {" | "}
+            <NavLink activeStyle={activeStyle} to="/shops_map">ShopsMaps</NavLink> {" | "}  
             <NavLink activeStyle={activeStyle} to="/users"> Users </NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/deliveries_status"> Deliveries </NavLink> {" | "}
+            <NavLink activeStyle={activeStyle} to="/deliveries_map"> Deliveries Map</NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/balance"> Balance  </NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/suscription"> Manage Suscription  </NavLink> {" | "}
             <NavLink activeStyle={activeStyle} to="/stats"> Stats  </NavLink> {" | "}
