@@ -5,6 +5,7 @@ import Header from './common/Header';
 import { Route , Switch, withRouter } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
 import ShopsPage from './ShopsPage';
+import ShopsMap from './ShopsMap';
 import ManageShopPage from './ManageShopPage';
 import { ToastContainer } from 'react-toastify';
 import ProductPage from './ProductPage';
@@ -16,6 +17,7 @@ import EditProduct from './EditProduct';
 import EditUser from './EditUser';
 import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
+import DeliveriesMap from './DeliveriesMap';
 import Balance from './Balance';
 import ManageSuscription from './ManageSuscription';
 import StatsPage from './StatsPage';
@@ -35,8 +37,10 @@ function App(){
         <Route path="/home" component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/shops" component={ShopsPage} />
+        <Route path="/shopsMaps" component={ShopsMap} />
         <Route path="/users" component={UsersPage} />
         <Route path="/deliveries_status" component={DeliveriesStatusPage} />
+        <Route path="/deliveries_map" component={DeliveriesMap} />
         <Route path="/shop/:slug" component={ProductPage} />
         <Route path="/add-shop" component={ManageShopPage} />
         <Route path="/add-user" component={ManageUserPage}/>
