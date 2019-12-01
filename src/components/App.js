@@ -17,6 +17,7 @@ import EditUser from './EditUser';
 import LoginPage from './LoginPage';
 import DeliveriesStatusPage from './DeliveriesStatusPage';
 import Balance from './Balance';
+import ManageSuscription from './ManageSuscription';
 
 function App(){
   const HeaderWithRouter = withRouter(props => <Header {...props}/>);
@@ -43,6 +44,7 @@ function App(){
         <Route path="/editar-user/:slug" component={EditUser}/>
         <Route path="/editar-producto/:slug" component={EditProduct}/>
         <Route path="/balance" component={Balance}/>
+        <Route path="/suscription" component={ManageSuscription}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
