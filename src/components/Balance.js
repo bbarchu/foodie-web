@@ -1,6 +1,7 @@
 import React from 'react'
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 class Balance extends React.Component {
     constructor(props) {
@@ -43,6 +44,10 @@ class Balance extends React.Component {
 
  
     render() {
+      var aux = []
+      if (this.state.users.length > 0) {
+        aux = sortByKey(this.state.users, "id")
+      }
         return (
           <React.Fragment>
             <h2> Balance deliveries </h2>
@@ -62,7 +67,7 @@ class Balance extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.filter(user => user.role === "delivery")
+                {aux.filter(user => user.role === "delivery")
                 .map ( user => {
                   return ( 
                     <tr key={user.id}>

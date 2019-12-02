@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 class UsersPage extends React.Component {
  
@@ -59,6 +60,10 @@ class UsersPage extends React.Component {
   }
 
     render() {
+        var aux = []
+        if (this.state.users.length > 0) {
+          aux = sortByKey(this.state.users, "id");
+        }
         return (
           <React.Fragment>
             <h2> Users </h2>
@@ -84,7 +89,7 @@ class UsersPage extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.map ( user => {
+                {aux.map ( user => {
                   return ( 
                     <tr key={user.id}>
                         <td> {user.id} </td>
