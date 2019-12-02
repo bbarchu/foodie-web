@@ -58,7 +58,10 @@ class UsersPage extends React.Component {
       return "False";
     }
   }
-
+  
+  showRep(rep){
+    return (!rep) ? "-" : rep;
+  }
     render() {
         var aux = []
         if (this.state.users.length > 0) {
@@ -84,6 +87,7 @@ class UsersPage extends React.Component {
                   <th>Photo_url</th>
                   <th>Creation date</th>
                   <th>Is active</th>
+                  <th>Reputation</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -103,6 +107,7 @@ class UsersPage extends React.Component {
                         <td>{user.photo_url}</td>
                         <td>{user.creation_date}</td>
                         <td>{this.esActivo(user.active)}</td>
+                        <td>{this.showRep(user.reputation)}</td>
                         <Link className="btn btn-primary" to={{pathname:"/editar-user/" + user.id, props: {user: user}}}>
                         Editar                       
                         </Link>
