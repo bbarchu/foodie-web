@@ -21,6 +21,7 @@ import DeliveriesMap from './DeliveriesMap';
 import Balance from './Balance';
 import ManageSuscription from './ManageSuscription';
 import StatsPage from './StatsPage';
+import OrdersPage from './OrdersPage';
 
 function App(){
   const HeaderWithRouter = withRouter(props => <Header {...props}/>);
@@ -51,6 +52,7 @@ function App(){
         <Route path="/balance" component={Balance}/>
         <Route path="/suscription" component={ManageSuscription}/>
         <Route path="/stats" component={StatsPage}/>
+        <Route path="/orders" component={OrdersPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
