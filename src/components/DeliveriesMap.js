@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { compose } from "recompose"
+import url from './common/apilink.json';
 import {
   withScriptjs,
   withGoogleMap,
@@ -61,12 +62,12 @@ export default class DeliveriesMap extends Component {
     }
   }
   componentDidMount() {
-    fetch("https://taller2-back.herokuapp.com/api/deliveries/status")
+    fetch(url.BASE_URL + "/api/deliveries/status")
       .then(r => r.json())
       .then(data => {
         this.setState({ deliveries: data, deliveries_ready: true })
       })
-    fetch("https://taller2-back.herokuapp.com/api/admin/users")
+    fetch(url.BASE_URL + "/api/admin/users")
     .then(r => r.json())
     .then(data => {
     this.setState({ users: data, users_ready: true })

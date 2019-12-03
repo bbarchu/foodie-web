@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { compose } from "recompose"
+import url from './common/apilink.json';
 import {
   withScriptjs,
   withGoogleMap,
@@ -49,7 +50,7 @@ export default class ShopsMap extends Component {
     }
   }
   componentDidMount() {
-    fetch("https://taller2-back.herokuapp.com/api/admin/shops")
+    fetch(url.BASE_URL + "/api/admin/shops")
       .then(r => r.json())
       .then(data => {
         this.setState({ shelters: data })
