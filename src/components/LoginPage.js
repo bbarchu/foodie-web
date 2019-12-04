@@ -27,11 +27,15 @@ function LoginPage(props) {
                 password: user.contrasenia
 
             })
-        }).then(() => {
-            toast.success("Conection success!");
-            props.history.push("/home");            
-        }).catch((e) => console.log(e));
+        }).then((response) => { 
+            if(response.ok){
+                toast.success("Conection success!");
+                props.history.push("/home");      
+            }
+        }).catch((error) => console.log("hubo un problema" + error.message));
     }
+
+   
 
     function formIsValid(){
         const _errors = {};
