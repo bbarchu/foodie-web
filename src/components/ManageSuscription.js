@@ -49,7 +49,7 @@ class ManageSuscription extends React.Component {
       }
         return (
           <React.Fragment>
-            <h2> Balance deliveries </h2>
+            <h2> Manejo Suscripciones </h2>
 
             <table className="table">
               <thead>
