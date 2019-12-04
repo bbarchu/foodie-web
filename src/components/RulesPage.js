@@ -7,22 +7,17 @@ class Rules extends React.Component {
     //     super(props);
     state = {
             rules: []
-            
-         }
+    }
     //     //this.handleEdit = this.handleEdit.bind(this);
     //   }
-
-    state = {
-        users: []
-      };
-      
+     
       componentWillMount() {
     
         fetch(url.BASE_URL+`/api/admin/pricing`)
         .then((response) => {
-          debugger
+          //debugger
           return response.json()
-        }).then( users => this.setState ({users: users}));
+        }).then( rules => this.setState ({rules: rules}));
       }
     // componentWillMount() {
     
@@ -63,7 +58,7 @@ class Rules extends React.Component {
             <h2> Rules </h2>
             <Editable
 
-                text={this.state.rules}
+                text={JSON.stringify(this.state.rules)}
                 placeholder={this.state.rules}
                 type="input"
                 >
