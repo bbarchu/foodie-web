@@ -22,6 +22,7 @@ import Balance from './Balance';
 import ManageSuscription from './ManageSuscription';
 import StatsPage from './StatsPage';
 import OrdersPage from './OrdersPage';
+import RulesPage from './RulesPage';
 
 function App(){
   const HeaderWithRouter = withRouter(props => <Header {...props}/>);
@@ -53,6 +54,7 @@ function App(){
         <Route path="/suscription" component={ManageSuscription}/>
         <Route path="/stats" component={StatsPage}/>
         <Route path="/orders" component={OrdersPage}/>
+        <Route path="/rules" component={RulesPage}/>
         <Route component={NotFoundPage}/>
       </Switch>
     </div>
