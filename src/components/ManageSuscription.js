@@ -1,6 +1,7 @@
 import React from 'react';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 
 class ManageSuscription extends React.Component {
@@ -42,9 +43,13 @@ class ManageSuscription extends React.Component {
   }
  
     render() {
+      var aux = []
+      if (this.state.users.length > 0) {
+        aux = sortByKey(this.state.users, "id")
+      }
         return (
           <React.Fragment>
-            <h2> Balance deliveries </h2>
+            <h2> Manejo Suscripciones </h2>
 
             <table className="table">
               <thead>
@@ -58,7 +63,7 @@ class ManageSuscription extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.map ( user => {
+                {aux.filter(user => user.role=="user").map ( user => {
                   return ( 
                     <tr key={user.id}>
                         <td> {user.id} </td>

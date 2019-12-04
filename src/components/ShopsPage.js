@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 class ShopsPage extends React.Component {
 	state = {
@@ -18,7 +19,7 @@ class ShopsPage extends React.Component {
   handleClickDelete(idShop) {
 
     let opcion = confirm("Estas seguro que lo quieres desactivar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/shops/'+idShop, {
@@ -32,7 +33,7 @@ class ShopsPage extends React.Component {
 
   handleClickActive(idShop) {
     let opcion = confirm("Estas seguro que lo quieres activar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/shops', {
@@ -59,6 +60,10 @@ class ShopsPage extends React.Component {
 
 
     render() {
+      var aux = [];
+      if (this.state.shops.length > 0) {
+        aux = sortByKey(this.state.shops, "id")
+      }
         return (
           <React.Fragment>
         <h2> Shops </h2>
@@ -82,7 +87,7 @@ class ShopsPage extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.shops.map ( shop => {
+            {aux.map ( shop => {
               return ( 
                 <tr key={shop.id}>
                 <td> {shop.id} </td>

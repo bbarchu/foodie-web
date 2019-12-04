@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 class ProductPage extends React.Component {
  
@@ -20,7 +21,7 @@ componentWillMount() {
 handleClickDelete(idProduct) {
 
   let opcion = confirm("Estas seguro que lo quieres desactivar?");
-  if (opcion == false) {
+  if (opcion === false) {
     return;
   }
   fetch(url.BASE_URL + '/api/admin/products/'+idProduct, {
@@ -34,7 +35,7 @@ handleClickDelete(idProduct) {
 
 handleClickActive(idProduct) {
   let opcion = confirm("Estas seguro que lo quieres activar?");
-  if (opcion == false) {
+  if (opcion === false) {
     return;
   }
   fetch(url.BASE_URL + '/api/admin/products', {
@@ -59,6 +60,10 @@ handleClickActive(idProduct) {
   }
   
     render() {
+      var aux = []
+      if (this.state.products.length > 0) {
+        aux = sortByKey(this.state.products, "id");
+      }
         return (
           <React.Fragment>
         <h2> Products </h2>
@@ -81,7 +86,7 @@ handleClickActive(idProduct) {
             </tr>
           </thead>
           <tbody>
-            {this.state.products.map ( product => {
+            {aux.map ( product => {
               return ( 
                 <tr key={product.id}>
                     <td> { this.props.location.props.id } </td>

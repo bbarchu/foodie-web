@@ -18,7 +18,7 @@ class EditUser extends React.Component {
                 photo_url:this.props.location.props.user.photo_url
             },
             errors:{}
-            
+
         }
         //this.handleChange = this.handleChange.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -32,18 +32,18 @@ class EditUser extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
       }
-    
-    
+
+
       formIsValid(){
         const _errors = {};
         if(!this.state.user.name) _errors.name= "Name is required";
-    
+
         this.state.errors = _errors
         return Object.keys(this.state.errors).length === 0;
-    }  
-    
+    }
+
     handleSubmit(event){
-        event.preventDefault();        
+        event.preventDefault();
         //this.setState({user: target.value});
         let user = this.state.user;
         let id = user.id
@@ -60,7 +60,7 @@ class EditUser extends React.Component {
                 role: user.role,
                 subscription: user.subscription
             })
-        }).then(() => { 
+        }).then(() => {
             toast.success("Successfull edit");
         }).catch((e) => console.log(e));
     }
@@ -69,7 +69,7 @@ class EditUser extends React.Component {
     handleChange({target}) {
         this.setState({user: target.value});
         let user = this.state.user;
-        fetch('https://taller2-back.herokuapp.com/api/admin/users/${user.id}', {
+        fetch(url.BASE_URL + `/api/admin/users/${user.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 name: user.name,
@@ -80,7 +80,7 @@ class EditUser extends React.Component {
                 role: user.role,
                 subscription: user.subscription
             })
-        }).then(() => { 
+        }).then(() => {
             toast.success("Successfull edit");
         }).catch((e) => console.log(e));
     }
@@ -133,7 +133,7 @@ class EditUser extends React.Component {
         const newUser = { ...user, ...update }
         this.setState({...this.state, ...{ user: newUser}})
     }
-    
+
 
     render(){
         return (
@@ -146,8 +146,8 @@ class EditUser extends React.Component {
                 onChange={this.handleChangeName}
 
                 />
-                    
-                
+
+
                 <TextInput
                 id="surname"
                 label="Surname"
@@ -156,7 +156,7 @@ class EditUser extends React.Component {
                 onChange={this.handleChangeSurname}
 
                 />
-                
+
                 <TextInput
                 id="email"
                 label="Email"
@@ -165,7 +165,7 @@ class EditUser extends React.Component {
                 onChange={this.handleChangeEmail}
 
                 />
-                    
+
                 <TextInput
                 id="phone"
                 label="phone"
@@ -174,7 +174,7 @@ class EditUser extends React.Component {
                 onChange={this.handleChangePhone}
 
                 />
-                    
+
                 <TextInput
                 id="password"
                 label="Password"
@@ -216,7 +216,7 @@ class EditUser extends React.Component {
             </form>
         );
     }
-    
+
 }
 
 export default EditUser;

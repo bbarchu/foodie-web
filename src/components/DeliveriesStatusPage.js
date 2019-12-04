@@ -1,5 +1,6 @@
 import React from 'react'
 import url from './common/apilink.json';
+import { sortByKey } from './utils';
 class DeliveriesStatusPage extends React.Component {
 	state = {
     deliveries: []
@@ -14,6 +15,10 @@ class DeliveriesStatusPage extends React.Component {
 
 
     render() {
+      var aux = []
+      if (this.state.deliveries.length > 0) {
+        aux = sortByKey(this.state.deliveries, "user_id")
+      }
         return (
           <React.Fragment>
         <h2> Deliveries Status </h2>
@@ -27,7 +32,7 @@ class DeliveriesStatusPage extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.deliveries.map ( delivery => {
+            {aux.map ( delivery => {
               return ( 
                 <tr key={delivery.user_id}>
                 <td> {delivery.user_id} </td>

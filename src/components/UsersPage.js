@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
+import { sortByKey } from './utils';
 
 class UsersPage extends React.Component {
  
@@ -20,7 +21,7 @@ class UsersPage extends React.Component {
   handleClickDelete(userId) {
 
     let opcion = confirm("Estas seguro que lo quieres desactivar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/users/'+userId, {
@@ -35,7 +36,7 @@ class UsersPage extends React.Component {
   handleClickActive(userId) {
     console.log(userId)
     let opcion = confirm("Estas seguro que lo quieres activar?");
-    if (opcion == false) {
+    if (opcion === false) {
       return;
     }
     fetch(url.BASE_URL + '/api/admin/users/'+userId, {
@@ -57,8 +58,15 @@ class UsersPage extends React.Component {
       return "False";
     }
   }
-
+  
+  showRep(rep){
+    return (!rep) ? "-" : rep;
+  }
     render() {
+        var aux = []
+        if (this.state.users.length > 0) {
+          aux = sortByKey(this.state.users, "id");
+        }
         return (
           <React.Fragment>
             <h2> Users </h2>
@@ -79,12 +87,13 @@ class UsersPage extends React.Component {
                   <th>Photo_url</th>
                   <th>Creation date</th>
                   <th>Is active</th>
+                  <th>Reputation</th>
                   <th></th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.map ( user => {
+                {aux.map ( user => {
                   return ( 
                     <tr key={user.id}>
                         <td> {user.id} </td>
@@ -98,6 +107,7 @@ class UsersPage extends React.Component {
                         <td>{user.photo_url}</td>
                         <td>{user.creation_date}</td>
                         <td>{this.esActivo(user.active)}</td>
+                        <td>{this.showRep(user.reputation)}</td>
                         <Link className="btn btn-primary" to={{pathname:"/editar-user/" + user.id, props: {user: user}}}>
                         Editar                       
                         </Link>
