@@ -2,6 +2,7 @@ import React from 'react'
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
+import manejadorErrores from './common/manejadorErrores';
 
 class Balance extends React.Component {
     constructor(props) {
@@ -31,11 +32,18 @@ class Balance extends React.Component {
         body: JSON.stringify({
             cash_balance: cashBalance - this.state.retiro
         })
-    }).then(() => { 
-        this.componentWillMount() 
-        toast.success("Retiro exitoso");
+    }).then((res) => { 
+        if(res.ok){
+          this.componentWillMount() 
+          toast.success("Retiro exitoso");     
+        }
+        else {
+          manejadorErrores(res.status);
+        }
     }).catch((e) => console.log(e));
 }
+
+
 
   handleChangeRetiro({target}){
     console.log(this.state.retiro)

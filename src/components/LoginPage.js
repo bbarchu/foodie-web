@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { withRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import url from './common/apilink.json';
+import manejadorErrores from './common/manejadorErrores';
+
 function LoginPage(props) {
     const [errors, setErrors] = useState({});
     const [user, setUser] = useState({
@@ -27,10 +29,13 @@ function LoginPage(props) {
                 password: user.contrasenia
 
             })
-        }).then((response) => { 
-            if(response.ok){
+        }).then((res) => { 
+            if(res.ok){
                 toast.success("Conection success!");
                 props.history.push("/home");      
+            }
+            else {
+               manejadorErrores(res.status);
             }
         }).catch((error) => console.log("hubo un problema" + error.message));
     }

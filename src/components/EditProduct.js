@@ -2,6 +2,8 @@ import React from 'react';
 import TextInput from './common/TextInput';
 import { toast } from 'react-toastify';
 import url from './common/apilink.json';
+import manejadorErrores from './common/manejadorErrores';
+
 
 class EditProduct extends React.Component {
     constructor(props) {
@@ -54,8 +56,15 @@ class EditProduct extends React.Component {
                 description: this.state.product.description
 
             })
-        }).then(() => { 
-            toast.success("Successfull edit!");
+        }).then((res) => { 
+
+            if(res.ok){
+                toast.success("Successfull edit!");
+  
+            }
+            else {
+               manejadorErrores(res.status);
+            }
         }).catch((e) => console.log(e));
 
     }

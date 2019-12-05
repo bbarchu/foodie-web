@@ -2,6 +2,7 @@ import React from 'react';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
+import manejadorErrores from './common/manejadorErrores';
 
 
 class ManageSuscription extends React.Component {
@@ -31,9 +32,15 @@ class ManageSuscription extends React.Component {
         body: JSON.stringify({
             subscription: this.state.suscripcion
         })
-    }).then(() => { 
-        this.componentWillMount() 
-        toast.success("Cambio de suscripcion exitosa");
+    }).then((res) => { 
+        
+        if(res.ok){
+          this.componentWillMount() 
+          toast.success("Cambio de suscripcion exitosa");
+        }
+        else {
+          manejadorErrores(res.status);
+        }
     }).catch((e) => console.log(e));
 }
 
