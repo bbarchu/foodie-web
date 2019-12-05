@@ -11,7 +11,7 @@ class ShopsPage extends React.Component {
   };
 
   componentWillMount() {
-    fetch(url.BASE_URL + '/api/shops')
+    fetch(url.BASE_URL + '/api/admin/shops')
     .then((response) => {
       return response.json()
     }).then( shops => this.setState ({shops: shops}));
