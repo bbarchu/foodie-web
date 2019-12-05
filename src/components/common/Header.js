@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {Nav, Navbar, NavDropdown}  from 'react-bootstrap';
 
 function Header(props) {
     const activeStyle = { color: "black"};
@@ -16,21 +17,35 @@ function Header(props) {
 
         return (
         
-        <div>{HeaderWithRouter() && 
-            <nav>
-            <NavLink activeStyle={activeStyle} to="/home" >Home</NavLink> {" | "} 
-            <NavLink activeStyle={activeStyle} to="/shops">Shops</NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/shops_map">ShopsMaps</NavLink> {" | "}  
-            <NavLink activeStyle={activeStyle} to="/users"> Users </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/deliveries_status"> Deliveries </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/deliveries_map"> Deliveries Map</NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/balance"> Balance  </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/suscription"> Manage Suscription  </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/orders"> Orders Status</NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/stats"> Stats  </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/rules"> Rules  </NavLink> {" | "}
-            <NavLink activeStyle={activeStyle} to="/about"> About </NavLink>
-        </nav>
+        <div>{HeaderWithRouter() &&
+
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand href="/home">Foodie</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                    <NavDropdown title="Shops" id="collasible-nav-dropdown">
+                            <NavDropdown.Item href="/shops">Shops</NavDropdown.Item>
+                            <NavDropdown.Item href="/shops_map">Map</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="/users">Users</Nav.Link>
+                    <NavDropdown title="Deliveries" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="/deliveries_status">Status</NavDropdown.Item>
+                        <NavDropdown.Item href="/deliveries_map">Map action</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="/balance">Balance</Nav.Link>
+                    <Nav.Link href="/suscription">Suscription</Nav.Link>
+                    <Nav.Link href="/orders">Orders</Nav.Link>
+                    <Nav.Link href="/rules">Rules</Nav.Link>
+                    <Nav.Link href="/stats">Stats</Nav.Link>                        
+                    <Nav.Link href="/about">About</Nav.Link>                        
+                    </Nav>
+                    
+                </Navbar.Collapse>
+            </Navbar>
+
+
+            
         
         }
         </div>

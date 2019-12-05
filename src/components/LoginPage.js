@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import url from './common/apilink.json';
 import manejadorErrores from './common/manejadorErrores';
+import Card from 'react-bootstrap/Card'
 
 function LoginPage(props) {
     const [errors, setErrors] = useState({});
@@ -56,6 +57,7 @@ function LoginPage(props) {
         <ToastContainer autoClose={4000} hideProgressBar />
         <React.Fragment>
         <h1>Login to foodie</h1>
+
         <form onSubmit={handleSubmit}>
                     
             <TextInput
