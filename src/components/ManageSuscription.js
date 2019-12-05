@@ -3,6 +3,8 @@ import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
 import manejadorErrores from './common/manejadorErrores';
+import Card from 'react-bootstrap/Card';
+
 
 
 class ManageSuscription extends React.Component {
@@ -56,8 +58,12 @@ class ManageSuscription extends React.Component {
       }
         return (
           <React.Fragment>
-            <h2> Manejo Suscripciones </h2>
-
+            <Card style={{ width: '100em' }} >
+					<Card.Body>
+						<Card.Title> <h2> Manage suscriptions </h2></Card.Title>
+					
+					</Card.Body>
+				</Card>
             <table className="table">
               <thead>
                 <tr>

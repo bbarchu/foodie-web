@@ -11,6 +11,8 @@ import {
   InfoWindow
 } from "react-google-maps"
 import { compose } from "recompose"
+import Card from 'react-bootstrap/Card';
+
 
 const icon_available = "https://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=•"
 const icon_busy = "https://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-b.png&ax=43&ay=48&text=•"
@@ -196,7 +198,12 @@ class OrdersPage extends React.Component {
       }
       return (
           <React.Fragment>
-        <h2> Orders Status </h2>
+        <Card style={{ width: '100em' }} >
+					<Card.Body>
+						<Card.Title><h2> Orders Status </h2></Card.Title>
+					
+					</Card.Body>
+				</Card>
         <table className="table">
           <thead>
             <tr>

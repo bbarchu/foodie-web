@@ -1,6 +1,8 @@
 import React from 'react';
 import Chart from 'react-apexcharts'
 import url from './common/apilink.json';
+import Card from 'react-bootstrap/Card';
+
 
 const MONTHS = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
 
@@ -191,7 +193,12 @@ class StatsPage extends React.Component {
 		//<Chart options={this.state.donut_options} series={donut_series} type="donut" width={500} height={320} />
         return(
             <div>
-                <h2> Stats </h2>
+                <Card style={{ width: '100em' }} >
+					<Card.Body>
+						<Card.Title> <h2> Stats </h2></Card.Title>
+					
+					</Card.Body>
+				</Card>
 				<div id="chartContainer1" style={{display: "inline-block"}}>
 					<Chart options={this.state.donut_options} series={donut_series} type="donut" width={500} height={320} />
 				</div>

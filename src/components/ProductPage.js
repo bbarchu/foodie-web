@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
+import Card from 'react-bootstrap/Card';
+
 
 class ProductPage extends React.Component {
  
@@ -66,10 +68,20 @@ handleClickActive(idProduct) {
       }
         return (
           <React.Fragment>
-        <h2> Products </h2>
-        <Link className="btn btn-primary" to={{pathname:"/add-product", props: {id: this.props.location.props.id}}}>
+       
+       
+
+        <Card style={{ width: '100em' }} >
+        <Card.Body>
+          <Card.Title> <h2> Products </h2></Card.Title>
+          <Card.Text>
+            Clickeando aqui podrás agregar un nuevo producto!
+          </Card.Text>
+          <Link className="btn btn-primary" to={{pathname:"/add-product", props: {id: this.props.location.props.id}}}>
           Add product
         </Link>
+        </Card.Body>
+      </Card>
         <table className="table">
           <thead>
             <tr>

@@ -3,6 +3,8 @@ import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
 import manejadorErrores from './common/manejadorErrores';
+import Card from 'react-bootstrap/Card';
+
 
 class Balance extends React.Component {
     constructor(props) {
@@ -58,7 +60,13 @@ class Balance extends React.Component {
       }
         return (
           <React.Fragment>
-            <h2> Balance deliveries </h2>
+           
+            <Card style={{ width: '100em' }} >
+              <Card.Body>
+                <Card.Title> <h2> Balance deliveries </h2></Card.Title>
+              
+              </Card.Body>
+            </Card>
 
             <table className="table">
               <thead>

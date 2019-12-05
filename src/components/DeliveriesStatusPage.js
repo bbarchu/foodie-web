@@ -1,6 +1,8 @@
 import React from 'react'
 import url from './common/apilink.json';
 import { sortByKey } from './utils';
+import Card from 'react-bootstrap/Card';
+
 class DeliveriesStatusPage extends React.Component {
 	state = {
     deliveries: []
@@ -21,7 +23,13 @@ class DeliveriesStatusPage extends React.Component {
       }
         return (
           <React.Fragment>
-        <h2> Deliveries Status </h2>
+        
+        <Card style={{ width: '100em' }} >
+					<Card.Body>
+						<Card.Title><h2> Deliveries Status </h2></Card.Title>
+					
+					</Card.Body>
+				</Card>
         <table className="table">
           <thead>
             <tr>

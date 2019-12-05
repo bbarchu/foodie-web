@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import url from './common/apilink.json';
 import { toast } from 'react-toastify';
 import { sortByKey } from './utils';
+import Card from 'react-bootstrap/Card';
 
 class ShopsPage extends React.Component {
 	state = {
@@ -66,10 +67,19 @@ class ShopsPage extends React.Component {
       }
         return (
           <React.Fragment>
-        <h2> Shops </h2>
-        <Link className="btn btn-primary" to="/add-shop">
+        
+        
+        <Card style={{ width: '100em' }} >
+        <Card.Body>
+          <Card.Title><h2> Shops </h2></Card.Title>
+          <Card.Text>
+            Clickeando aqui podrás agregar un nuevo shop!
+          </Card.Text>
+          <Link className="btn btn-primary" to="/add-shop">
           Add shop
         </Link>
+        </Card.Body>
+      </Card>
         <table className="table">
           <thead>
             <tr>
