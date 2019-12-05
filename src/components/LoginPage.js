@@ -56,34 +56,41 @@ function LoginPage(props) {
         <div className="container-fluid">
         <ToastContainer autoClose={4000} hideProgressBar />
         <React.Fragment>
-        <h1>Login to foodie</h1>
-
-        <form onSubmit={handleSubmit}>
+        
+        <Card style={{ width: '50em', marginRight:'0' , marginLeft:'0'}}>
+        <Card.Body>
+          <Card.Title><h1>Login to foodie</h1></Card.Title>
+          <form onSubmit={handleSubmit} >
                     
-            <TextInput
-            id="email"
-            label="E-mail"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-            error={errors.email}
+                    <TextInput
+                    id="email"
+                    label="E-mail"
+                    name="email"
+                    value={user.email}
+                    onChange={handleChange}
+                    error={errors.email}
+        
+                    />
+        
+                    <TextInput
+                    id="contrasenia"
+                    label="Contraseña"
+                    name="contrasenia"
+                    value={user.contrasenia}
+                    onChange={handleChange}
+                    error={errors.contrasenia}
+                    type={"password"}
+        
+                    />
+        
+                    <input type="submit" value="Log in!" className="btn btn-primary" />
+        
+                </form>
+          
+        </Card.Body>
+      </Card>
 
-            />
-
-            <TextInput
-            id="contrasenia"
-            label="Contraseña"
-            name="contrasenia"
-            value={user.contrasenia}
-            onChange={handleChange}
-            error={errors.contrasenia}
-            type={"password"}
-
-            />
-
-            <input type="submit" value="Log in!" className="btn btn-primary" />
-
-        </form>
+        
         </React.Fragment>
         </div>
     );
