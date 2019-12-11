@@ -93,7 +93,7 @@ class OrdersPage extends React.Component {
       this.setState ({orders: aux, orders_ready: true})
     });
 
-    fetch(url.BASE_URL + '/api/shops')
+    fetch(url.BASE_URL + '/api/admin/shops')
     .then((response) => {
       return response.json()
     }).then( shops => {
